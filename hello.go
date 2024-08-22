@@ -4,17 +4,43 @@
 // Rename. You should be able to rename symbols across files confidently.
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-const HelloPrefix = "Hello, "
+const (
+	spanish = "Spanish"
+	french  = "French"
+	german  = "German"
 
-func Hello(name string) string {
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix  = "Bonjour, "
+	germanHelloPrefix  = "Hallo, "
+)
+
+func Hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	return HelloPrefix + name
+
+	return getPrefix(language) + name
+}
+
+func getPrefix(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = spanishHelloPrefix
+	case french:
+		prefix = frenchHelloPrefix
+	case german:
+		prefix = germanHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
