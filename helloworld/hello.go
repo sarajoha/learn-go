@@ -2,7 +2,7 @@
 // command .
 
 // Rename. You should be able to rename symbols across files confidently.
-package main
+package helloworld
 
 import (
 	"fmt"
